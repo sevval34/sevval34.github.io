@@ -6,143 +6,148 @@
     <title>Şevval Başkan | Portfolyo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: #ffffff; color: #333; line-height: 1.6; }
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333;
+            --header-bg: #1a1e23;
+            --card-bg: #ffffff;
+            --accent-color: #6c5ce7;
+        }
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --header-bg: #000000;
+            --card-bg: #1e1e1e;
+            --accent-color: #a29bfe;
+        }
 
-        /* Üst Kısım - Dark Header */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; transition: 0.3s; }
+        body { background-color: var(--bg-color); color: var(--text-color); scroll-behavior: smooth; }
+
+        /* Navigasyon */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+        }
+        nav a { color: white; text-decoration: none; margin-left: 25px; font-weight: 500; }
+        
+        /* Dark Mode Switch */
+        .theme-switch { cursor: pointer; color: white; font-size: 1.2rem; margin-left: 25px; }
+
         header {
-            background-color: #1a1e23;
+            background-color: var(--header-bg);
             color: white;
-            padding: 80px 20px;
+            padding: 120px 20px 80px;
             text-align: center;
         }
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 4px solid #34495e;
-            margin-bottom: 20px;
-            object-fit: cover;
-        }
-        header h1 { font-size: 2.5rem; margin-bottom: 10px; }
-        header p { color: #bdc3c7; font-size: 1.1rem; max-width: 600px; margin: 0 auto 20px; }
+        .profile-img { width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--accent-color); margin-bottom: 20px; object-fit: cover; }
         
-        .social-icons a { color: white; margin: 0 10px; font-size: 1.5rem; text-decoration: none; transition: 0.3s; }
-        .social-icons a:hover { color: #3498db; }
-
+        .social-icons a { color: white; margin: 0 10px; font-size: 1.5rem; text-decoration: none; }
         .cv-btn {
             display: inline-block;
-            background-color: #6c5ce7;
+            background-color: var(--accent-color);
             color: white;
             padding: 12px 30px;
             border-radius: 25px;
             text-decoration: none;
             margin-top: 25px;
             font-weight: bold;
-            transition: 0.3s;
-        }
-        .cv-btn:hover { background-color: #a29bfe; transform: translateY(-3px); }
-
-        /* Yetenekler - Skill Tags */
-        .skills-section { padding: 40px 20px; text-align: center; background: #f9f9f9; }
-        .skill-tag {
-            display: inline-block;
-            background: white;
-            border: 1px solid #ddd;
-            padding: 8px 20px;
-            margin: 5px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: #555;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
-        /* Projeler - Card Layout */
         .container { max-width: 1000px; margin: 50px auto; padding: 0 20px; }
-        h2.section-title { text-align: center; margin-bottom: 40px; font-size: 2rem; color: #2d3436; }
-        
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
+        h2 { text-align: center; margin-bottom: 40px; font-size: 2rem; }
+
+        /* Proje Kartları */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
         .project-card {
-            background: white;
-            border: 1px solid #eee;
+            background: var(--card-bg);
+            border: 1px solid #444;
             padding: 30px;
             border-radius: 10px;
             text-align: center;
-            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-        .project-card:hover { box-shadow: 0 10px 20px rgba(0,0,0,0.1); transform: translateY(-5px); }
-        .project-card h3 { margin-bottom: 15px; color: #2d3436; }
-        .project-card p { font-size: 0.95rem; color: #636e72; margin-bottom: 20px; }
-        .project-card a { color: #6c5ce7; font-weight: bold; text-decoration: none; }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px;
-            background: #f1f2f6;
-            margin-top: 50px;
-            font-size: 0.9rem;
-            color: #7f8c8d;
-        }
+        .experience-box { background: var(--card-bg); padding: 20px; border-radius: 10px; border-left: 5px solid var(--accent-color); margin-bottom: 20px; }
+
+        footer { text-align: center; padding: 40px; background: var(--header-bg); color: #7f8c8d; }
     </style>
 </head>
 <body>
 
-<header>
+<nav>
+    <a href="#about">Hakkımda</a>
+    <a href="#experience">Deneyim</a>
+    <a href="#projects">Projeler</a>
+    <div class="theme-switch" onclick="toggleTheme()"><i id="theme-icon" class="fas fa-moon"></i></div>
+</nav>
+
+<header id="about">
     <img src="profil_fotografin.jpg" alt="Şevval Başkan" class="profile-img">
-    <h1>Şevval Başkan</h1>
-    <p>Bilgisayar Mühendisliği Son Sınıf Öğrencisi[cite: 6]. C#, SQL ve Görüntü İşleme konularında deneyimli geliştirici adayı[cite: 17, 18, 24].</p>
+    <h1>Şevval Başkan [cite: 1]</h1>
+    <p>Bilgisayar Mühendisliği Öğrencisi[cite: 6]. Görüntü işleme ve modern web teknolojilerine ilgi duyuyorum[cite: 6].</p>
     
     <div class="social-icons">
-        <a href="https://github.com/sevval34/sevval34"><i class="fab fa-github"></i></a> 
-        <a href="https://www.linkedin.com/in/sevval-in"><i class="fab fa-linkedin"></i></a> [cite: 2]
-        <a href="mailto:sevvalbaskan_@outlook.com"><i class="fas fa-envelope"></i></a> 
+        <a href="https://github.com/sevval34/sevval34"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/sevval-baskan"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:sevvalbaskan_@outlook.com"><i class="fas fa-envelope"></i></a>
     </div>
 
     <a href="sevval_baskan_cv.pdf" class="cv-btn" download>CV İndir</a>
 </header>
 
-<div class="skills-section">
-    <div class="skill-tag">C# / .NET</div> [cite: 31]
-    <div class="skill-tag">Python (YOLOv8, OpenCV)</div> [cite: 27, 28]
-    <div class="skill-tag">React / Next.js</div> [cite: 32]
-    <div class="skill-tag">TypeScript</div> [cite: 32]
-    <div class="skill-tag">MSSQL</div> [cite: 18]
-    <div class="skill-tag">HTML / CSS</div> [cite: 32]
+<div class="container" id="experience">
+    <h2>Deneyim</h2>
+    <div class="experience-box">
+        <h3>Bimser | Software Development Intern [cite: 12]</h3>
+        <p><em>06/2024 - Halen [cite: 15]</em></p>
+        <ul>
+            <li>Low-Code platformu üzerinde kurumsal dijital dönüşüm projeleri geliştirme[cite: 16].</li>
+            <li>C# ile özel iş kurallarının modernize edilmesi[cite: 17].</li>
+        </ul>
+    </div>
 </div>
 
-<div class="container">
-    <h2 class="section-title">Projeler</h2>
+<div class="container" id="projects">
+    <h2>Projeler</h2>
     <div class="projects-grid">
         <div class="project-card">
-            <h3>Renk Körlüğü Simülasyonu</h3> [cite: 21]
-            <p>OpenCV ve NumPy ile Daltonizasyon iyileştirmesi sunan görüntü işleme platformu[cite: 24].</p>
-            <a href="https://github.com/sevval34/sevval34">GitHub →</a>
+            <h3>Renk Körlüğü Simülasyonu [cite: 21]</h3>
+            <p>OpenCV ve NumPy ile Daltonizasyon iyileştirmesi sunan platform[cite: 24].</p>
+            <a href="https://github.com/sevval34/sevval34" style="color: var(--accent-color); text-decoration: none;">İncele →</a>
         </div>
         
         <div class="project-card">
-            <h3>Çini Motifi Tanıma</h3> [cite: 25]
-            <p>YOLOv8 ve derin öğrenme ile Türk çini sanatındaki motifleri otomatik tanıyan sistem[cite: 27].</p>
-            <a href="https://github.com/sevval34/sevval34">GitHub →</a>
-        </div>
-
-        <div class="project-card">
-            <h3>Bimser Staj Projeleri</h3> [cite: 12]
-            <p>Kurumsal süreçlerin Low-Code platformları üzerinde dijital iş akışlarına dönüştürülmesi[cite: 16, 19].</p>
-            <a href="https://github.com/sevval34/sevval34">GitHub →</a>
+            <h3>Çini Motifi Tanıma [cite: 25]</h3>
+            <p>YOLOv8 ve derin öğrenme ile motifleri otomatik tanıyan sistem[cite: 27].</p>
+            <a href="https://github.com/sevval34/sevval34" style="color: var(--accent-color); text-decoration: none;">İncele →</a>
         </div>
     </div>
 </div>
 
 <footer>
-    <p>Zonguldak / Türkiye [cite: 6]</p>
-    <p>+90 (531) 652 56 61 </p>
-    <p>© 2026 Şevval Başkan</p>
+    <p>© 2026 Şevval Başkan | Zonguldak</p>
 </footer>
+
+<script>
+    function toggleTheme() {
+        const body = document.body;
+        const icon = document.getElementById('theme-icon');
+        if (body.getAttribute('data-theme') === 'dark') {
+            body.removeAttribute('data-theme');
+            icon.className = 'fas fa-moon';
+        } else {
+            body.setAttribute('data-theme', 'dark');
+            icon.className = 'fas fa-sun';
+        }
+    }
+</script>
 
 </body>
 </html>
