@@ -27,7 +27,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; transition: 0.3s; }
         body { background-color: var(--bg-color); color: var(--text-color); scroll-behavior: smooth; }
 
-        /* Navigasyon */
         nav {
             position: fixed;
             top: 0; width: 100%;
@@ -44,7 +43,6 @@
         nav a:hover { color: var(--accent-color); }
         .theme-switch { cursor: pointer; color: var(--text-color); font-size: 1.2rem; margin-left: 25px; }
 
-        /* Header / Hakkımda */
         header { padding: 150px 20px 80px; text-align: center; }
         .profile-img { 
             width: 170px; height: 170px; border-radius: 50%; 
@@ -73,7 +71,6 @@
         h2 { text-align: center; margin-bottom: 60px; font-size: 2.5rem; position: relative; }
         h2::after { content: ''; width: 60px; height: 5px; background: var(--accent-color); position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); border-radius: 5px; }
 
-        /* Teknik Beceriler Grid */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -86,13 +83,10 @@
             background: var(--card-bg);
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: 0.3s;
         }
-        .skill-item:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
         .skill-item i { font-size: 3rem; margin-bottom: 10px; display: block; }
         .skill-item span { font-weight: 600; font-size: 0.9rem; }
 
-        /* Proje Kartları */
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 35px; }
         .project-card {
             background: var(--card-bg);
@@ -108,9 +102,17 @@
         .project-card h3 { font-size: 1.4rem; margin-bottom: 20px; }
         .project-card p { color: var(--secondary-text); font-size: 0.95rem; line-height: 1.6; margin-bottom: 30px; }
         .project-link { color: var(--accent-color); text-decoration: none; font-weight: bold; border: 2px solid var(--accent-color); padding: 10px 20px; border-radius: 25px; }
-        .project-link:hover { background: var(--accent-color); color: white; }
 
-        footer { text-align: center; padding: 60px; background: var(--bg-color); color: var(--secondary-text); border-top: 1px solid rgba(0,0,0,0.05); }
+        footer { 
+            text-align: center; 
+            padding: 60px; 
+            background: var(--bg-color); 
+            color: var(--secondary-text); 
+            border-top: 1px solid rgba(0,0,0,0.05); 
+        }
+        .footer-info { margin-top: 15px; font-size: 0.95rem; }
+        .footer-info i { color: var(--accent-color); margin-right: 8px; margin-left: 15px; }
+        .footer-info a { color: var(--secondary-text); text-decoration: none; }
     </style>
 </head>
 <body>
@@ -125,7 +127,7 @@
 <header id="about">
     <img src="profil_fotografin.jpg" alt="Şevval Başkan" class="profile-img">
     <h1>Şevval Başkan</h1>
-    <p>Bülent Ecevit Üniversitesi Bilgisayar Mühendisliği son sınıf öğrencisiyim. Görüntü işleme algoritmalarını modern web teknolojileriyle birleştirerek erişilebilir ve yenilikçi çözümler geliştirmeye odaklanıyorum.</p>
+    <p>Bülent Ecevit Üniversitesi Bilgisayar Mühendisliği son sınıf öğrencisiyim. Görüntü işleme algoritmalarını modern web teknolojileriyle birleştirerek erişilebilir çözümler geliştirmeye odaklanıyorum.</p>
     
     <div class="social-icons">
         <a href="https://github.com/sevval34/sevval34" target="_blank"><i class="fab fa-github"></i></a>
@@ -157,24 +159,27 @@
         <div class="project-card">
             <div>
                 <h3>Renk Körlüğü Simülasyonu ve Görsel İyileştirme Sistemi</h3>
-                <p>OpenCV ve NumPy kullanılarak görsellerin LMS renk uzayı üzerinde analiz edildiği, renk körlüğü türlerine göre Daltonizasyon iyileştirmesi uygulanan ve Streamlit ile geliştirilen yüksek performanslı bir platform.</p>
+                <p>OpenCV ve NumPy ile görsellerin LMS renk uzayı üzerinde analiz edildiği, renk körlüğü türlerine göre Daltonizasyon iyileştirmesi sunan Streamlit tabanlı platform.</p>
             </div>
-            <a href="https://github.com/sevval34/sevval34" class="project-link" target="_blank">Projeyi İncele →</a>
+            <a href="https://github.com/sevval34/sevval34" class="project-link" target="_blank">İncele →</a>
         </div>
-        
         <div class="project-card">
             <div>
                 <h3>Türk Çini Sanatı Motifleri Otomatik Tanıma Sistemi</h3>
-                <p>Python dili ve YOLOv8 mimarisi kullanılarak geliştirilen derin öğrenme tabanlı nesne tespiti modeli. Roboflow ve OpenCV ile motiflerin otomatik sınıflandırılması sağlanmıştır.</p>
+                <p>Python ve YOLOv8 mimarisi kullanılarak geliştirilen derin öğrenme tabanlı nesne tespiti modeli.</p>
             </div>
-            <a href="https://github.com/sevval34/sevval34" class="project-link" target="_blank">Projeyi İncele →</a>
+            <a href="https://github.com/sevval34/sevval34" class="project-link" target="_blank">İncele →</a>
         </div>
     </div>
 </div>
 
 <footer>
-    <p>Zonguldak / Türkiye</p>
-    <p>© 2026 Şevval Başkan</p>
+    <p>İstanbul / Türkiye</p>
+    <div class="footer-info">
+        <i class="fas fa-phone"></i> 0531 652 56 61
+        <i class="fas fa-envelope"></i> <a href="mailto:sevvalbaskan_@outlook.com">sevvalbaskan_@outlook.com</a>
+    </div>
+    <p style="margin-top: 20px; font-size: 0.8rem;">© 2026 Şevval Başkan</p>
 </footer>
 
 <script>
