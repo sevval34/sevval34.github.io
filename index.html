@@ -3,78 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Şevval Başkan | Portfolyo</title>
+    <title>Şevval Başkan | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; }
-        header { border-bottom: 2px solid #eee; padding-bottom: 20px; margin-bottom: 30px; }
-        h1 { color: #2c3e50; margin-bottom: 5px; }
-        h2 { color: #34495e; border-left: 5px solid #3498db; padding-left: 10px; margin-top: 30px; }
-        .contact-info { font-size: 0.9em; color: #7f8c8d; }
-        .project, .experience { margin-bottom: 20px; }
-        .date { font-style: italic; color: #95a5a6; float: right; }
-        .skills span { background: #ecf0f1; padding: 5px 10px; border-radius: 5px; margin-right: 5px; display: inline-block; margin-bottom: 5px; }
-        a { color: #3498db; text-decoration: none; }
+        :root { --primary-color: #2c3e50; --accent-color: #3498db; --bg-color: #f8f9fa; }
+        body { font-family: 'Inter', -apple-system, sans-serif; margin: 0; display: flex; background: var(--bg-color); color: #333; }
+        
+        /* Sol Menü / Sidebar */
+        nav { width: 280px; height: 100vh; background: white; position: fixed; border-right: 1px solid #ddd; display: flex; flex-direction: column; align-items: center; padding: 40px 20px; text-align: center; }
+        .profile-img { width: 150px; height: 150px; border-radius: 50%; background: #eee; margin-bottom: 20px; object-fit: cover; border: 3px solid var(--accent-color); }
+        nav h1 { font-size: 1.5rem; margin-bottom: 5px; color: var(--primary-color); }
+        nav p { font-size: 0.9rem; color: #7f8c8d; margin-bottom: 30px; }
+        .nav-links { list-style: none; padding: 0; width: 100%; }
+        .nav-links li { margin: 15px 0; }
+        .nav-links a { text-decoration: none; color: var(--primary-color); font-weight: 500; transition: 0.3s; }
+        .nav-links a:hover { color: var(--accent-color); }
+        
+        /* CV İndirme Butonu */
+        .cv-button { background: var(--accent-color); color: white !important; padding: 10px 25px; border-radius: 25px; display: inline-block; margin-top: 20px; font-size: 0.9rem; }
+
+        /* Ana İçerik */
+        main { margin-left: 320px; padding: 60px; max-width: 900px; }
+        section { margin-bottom: 60px; }
+        h2 { font-size: 2rem; border-bottom: 2px solid var(--accent-color); display: inline-block; padding-bottom: 10px; margin-bottom: 30px; }
+        
+        .experience-item, .project-item { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        .date { color: var(--accent-color); font-weight: bold; font-size: 0.9rem; }
+        
+        .skills-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+        .skill-tag { background: #eef2f7; color: var(--primary-color); padding: 8px 15px; border-radius: 20px; font-size: 0.85rem; }
     </style>
 </head>
 <body>
 
-<header>
-    [cite_start]<h1>ŞEVVAL BAŞKAN [cite: 1]</h1>
-    [cite_start]<p>Bilgisayar Mühendisliği Öğrencisi [cite: 6]</p>
-    <div class="contact-info">
-        [cite_start]Email: <a href="mailto:sevvalbaskan_@outlook.com">sevvalbaskan_@outlook.com</a> [cite: 1] | 
-        [cite_start]<a href="https://www.linkedin.com/in/sevval-in">LinkedIn</a> [cite: 2] | 
-        [cite_start]<a href="https://github.com/sevval34/sevval34">GitHub</a> [cite: 4]
-    </div>
-</header>
+<nav>
+    <img src="profil_fotografin.jpg" alt="Şevval Başkan" class="profile-img"> <h1>ŞEVVAL BAŞKAN</h1>
+    <p>Bilgisayar Mühendisliği Öğrencisi</p>
+    
+    <ul class="nav-links">
+        <li><a href="#about">Hakkımda</a></li>
+        <li><a href="#experience">Deneyim</a></li>
+        <li><a href="#projects">Projeler</a></li>
+        <li><a href="#skills">Yetenekler</a></li>
+    </ul>
 
-<section id="about">
-    <h2>Hakkımda</h2>
-    [cite_start]<p>Bülent Ecevit Üniversitesi Bilgisayar Mühendisliği bölümünde son sınıf öğrencisiyim[cite: 6]. Görüntü işleme, yapay zeka ve modern web teknolojilerine ilgi duyuyorum. [cite_start]Akademik başarımı (GPA: 3.31) pratik projelerle birleştirerek dijital dönüşüm süreçlerinde yer alıyorum[cite: 8, 16].</p>
-</section>
+    <a href="sevval_baskan_cv.pdf" class="cv-button" download>
+        <i class="fas fa-download"></i> CV İndir
+    </a>
 
-<section id="experience">
-    <h2>Deneyim</h2>
-    <div class="experience">
-        [cite_start]<span class="date">06/2024 - Halen</span> [cite: 15]
-        <strong>Bimser | [cite_start]Software Development Intern</strong> [cite: 12]
-        <ul>
-            [cite_start]<li>Low-Code platformu üzerinde kurumsal dijital dönüşüm projeleri geliştirme[cite: 16].</li>
-            [cite_start]<li>C# ile özel iş kuralları ve mantıksal hesaplamaların modernize edilmesi[cite: 17].</li>
-            [cite_start]<li>MSSQL üzerinde veri modelleme süreçlerinin yönetimi[cite: 18].</li>
-        </ul>
+    <div style="margin-top: auto; font-size: 1.2rem;">
+        <a href="https://github.com/sevval34/sevval34" style="margin: 0 10px;"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/sevval-in" style="margin: 0 10px;"><i class="fab fa-linkedin"></i></a>
     </div>
-</section>
+</nav>
 
-<section id="projects">
-    <h2>Projeler</h2>
-    <div class="project">
-        [cite_start]<span class="date">2025</span> [cite: 22]
-        [cite_start]<strong>Renk Körlüğü Simülasyonu ve Görsel İyileştirme Sistemi</strong> [cite: 21]
-        [cite_start]<p>OpenCV ve NumPy kullanılarak LMS renk uzayı üzerinde Daltonizasyon iyileştirmesi yapan erişilebilirlik platformu[cite: 24].</p>
-    </div>
-    <div class="project">
-        [cite_start]<span class="date">2025</span> [cite: 26]
-        [cite_start]<strong>Türk Çini Sanatı Motifleri Otomatik Tanıma Sistemi</strong> [cite: 25]
-        [cite_start]<p>YOLOv8 mimarisi ve Python kullanılarak geliştirilen derin öğrenme tabanlı nesne tespiti modeli[cite: 27].</p>
-    </div>
-</section>
+<main>
+    <section id="about">
+        <h2>Hakkımda</h2>
+        <p>Bülent Ecevit Üniversitesi Bilgisayar Mühendisliği bölümünde son sınıf öğrencisiyim[cite: 6]. Teknik yetkinliklerimi pratik çözümlere dönüştürmeye odaklanan, dijital dönüşüm süreçlerine ilgi duyan bir geliştiriciyim[cite: 16].</p>
+        <p>Şu anda Bimser bünyesinde stajyer yazılım geliştirici olarak kurumsal iş akışları ve veri modelleme üzerine çalışıyorum[cite: 12, 18]. Akademik olarak 3.31 GPA ile eğitimime devam etmekteyim[cite: 8].</p>
+    </section>
 
-<section id="skills">
-    <h2>Yetenekler</h2>
-    <div class="skills">
-        [cite_start]<span>C/C++/C#</span> <span>Python</span> [cite: 31]
-        [cite_start]<span>React</span> <span>Next.js</span> <span>TypeScript</span> [cite: 32]
-        [cite_start]<span>MSSQL</span> [cite: 18] [cite_start]<span>OpenCV</span> [cite: 24]
-        [cite_start]<span>İngilizce (B2)</span> [cite: 30]
-    </div>
-</section>
+    <section id="experience">
+        <h2>Deneyim</h2>
+        <div class="experience-item">
+            <span class="date">06/2024 - Halen</span>
+            <h3>Software Development Intern | Bimser</h3>
+            <ul>
+                <li>Low-Code platformu üzerinde uçtan uca kurumsal form tasarımı ve iş akışı geliştirme[cite: 16].</li>
+                <li>C# scriptleri ile karmaşık mantıksal hesaplamaların dijitalleştirilmesi[cite: 17].</li>
+                <li>MSSQL üzerinde veri modelleme ve saklama süreçlerinin yönetimi[cite: 18].</li>
+            </ul>
+        </div>
+    </section>
 
-<section id="education">
-    <h2>Eğitim</h2>
-    [cite_start]<p><strong>Bülent Ecevit Üniversitesi</strong> - Bilgisayar Mühendisliği (GPA: 3.31/4.00) [cite: 6, 8]</p>
-    [cite_start]<p><strong>Özel Mimaroba Sınav Anadolu Lisesi</strong> (Not: 93.40/100) [cite: 9, 10]</p>
-</section>
+    <section id="projects">
+        <h2>Projeler</h2>
+        <div class="project-item">
+            <span class="date">2025</span>
+            <h3>Renk Körlüğü Simülasyonu</h3>
+            <p>OpenCV ve NumPy kullanılarak geliştirilen, renk körlüğü türlerine göre görsel iyileştirme yapan erişilebilirlik platformu[cite: 23, 24].</p>
+        </div>
+        <div class="project-item">
+            <span class="date">2025</span>
+            <h3>Türk Çini Sanatı Motif Tanıma</h3>
+            <p>YOLOv8 mimarisi ile geleneksel motiflerin dijital ortamda otomatik sınıflandırılmasını sağlayan derin öğrenme modeli[cite: 27, 28].</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Yetenekler</h2>
+        <div class="skills-grid">
+            <div class="skill-tag">C# / .NET</div>
+            <div class="skill-tag">Python (OpenCV, YOLOv8)</div>
+            <div class="skill-tag">React / Next.js</div>
+            <div class="skill-tag">TypeScript</div>
+            <div class="skill-tag">MSSQL</div>
+            <div class="skill-tag">İngilizce (B2)</div>
+        </div>
+    </section>
+</main>
 
 </body>
 </html>
