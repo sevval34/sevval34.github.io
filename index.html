@@ -3,106 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Şevval Başkan | Portfolio</title>
+    <title>Şevval Başkan | Portfolyo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary-color: #2c3e50; --accent-color: #3498db; --bg-color: #f8f9fa; }
-        body { font-family: 'Inter', -apple-system, sans-serif; margin: 0; display: flex; background: var(--bg-color); color: #333; }
-        
-        /* Sol Menü / Sidebar */
-        nav { width: 280px; height: 100vh; background: white; position: fixed; border-right: 1px solid #ddd; display: flex; flex-direction: column; align-items: center; padding: 40px 20px; text-align: center; }
-        .profile-img { width: 150px; height: 150px; border-radius: 50%; background: #eee; margin-bottom: 20px; object-fit: cover; border: 3px solid var(--accent-color); }
-        nav h1 { font-size: 1.5rem; margin-bottom: 5px; color: var(--primary-color); }
-        nav p { font-size: 0.9rem; color: #7f8c8d; margin-bottom: 30px; }
-        .nav-links { list-style: none; padding: 0; width: 100%; }
-        .nav-links li { margin: 15px 0; }
-        .nav-links a { text-decoration: none; color: var(--primary-color); font-weight: 500; transition: 0.3s; }
-        .nav-links a:hover { color: var(--accent-color); }
-        
-        /* CV İndirme Butonu */
-        .cv-button { background: var(--accent-color); color: white !important; padding: 10px 25px; border-radius: 25px; display: inline-block; margin-top: 20px; font-size: 0.9rem; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: #ffffff; color: #333; line-height: 1.6; }
 
-        /* Ana İçerik */
-        main { margin-left: 320px; padding: 60px; max-width: 900px; }
-        section { margin-bottom: 60px; }
-        h2 { font-size: 2rem; border-bottom: 2px solid var(--accent-color); display: inline-block; padding-bottom: 10px; margin-bottom: 30px; }
+        /* Üst Kısım - Dark Header */
+        header {
+            background-color: #1a1e23;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #34495e;
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+        header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        header p { color: #bdc3c7; font-size: 1.1rem; max-width: 600px; margin: 0 auto 20px; }
         
-        .experience-item, .project-item { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 20px; }
-        .date { color: var(--accent-color); font-weight: bold; font-size: 0.9rem; }
+        .social-icons a { color: white; margin: 0 10px; font-size: 1.5rem; text-decoration: none; transition: 0.3s; }
+        .social-icons a:hover { color: #3498db; }
+
+        .cv-btn {
+            display: inline-block;
+            background-color: #6c5ce7;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            margin-top: 25px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .cv-btn:hover { background-color: #a29bfe; transform: translateY(-3px); }
+
+        /* Yetenekler - Skill Tags */
+        .skills-section { padding: 40px 20px; text-align: center; background: #f9f9f9; }
+        .skill-tag {
+            display: inline-block;
+            background: white;
+            border: 1px solid #ddd;
+            padding: 8px 20px;
+            margin: 5px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #555;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        /* Projeler - Card Layout */
+        .container { max-width: 1000px; margin: 50px auto; padding: 0 20px; }
+        h2.section-title { text-align: center; margin-bottom: 40px; font-size: 2rem; color: #2d3436; }
         
-        .skills-grid { display: flex; flex-wrap: wrap; gap: 10px; }
-        .skill-tag { background: #eef2f7; color: var(--primary-color); padding: 8px 15px; border-radius: 20px; font-size: 0.85rem; }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        .project-card {
+            background: white;
+            border: 1px solid #eee;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .project-card:hover { box-shadow: 0 10px 20px rgba(0,0,0,0.1); transform: translateY(-5px); }
+        .project-card h3 { margin-bottom: 15px; color: #2d3436; }
+        .project-card p { font-size: 0.95rem; color: #636e72; margin-bottom: 20px; }
+        .project-card a { color: #6c5ce7; font-weight: bold; text-decoration: none; }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: #f1f2f6;
+            margin-top: 50px;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
     </style>
 </head>
 <body>
 
-<nav>
-    <img src="profil_fotografin.jpg" alt="Şevval Başkan" class="profile-img"> <h1>ŞEVVAL BAŞKAN</h1>
-    <p>Bilgisayar Mühendisliği Öğrencisi</p>
+<header>
+    <img src="profil_fotografin.jpg" alt="Şevval Başkan" class="profile-img">
+    <h1>Şevval Başkan</h1>
+    <p>Bilgisayar Mühendisliği Son Sınıf Öğrencisi[cite: 6]. C#, SQL ve Görüntü İşleme konularında deneyimli geliştirici adayı[cite: 17, 18, 24].</p>
     
-    <ul class="nav-links">
-        <li><a href="#about">Hakkımda</a></li>
-        <li><a href="#experience">Deneyim</a></li>
-        <li><a href="#projects">Projeler</a></li>
-        <li><a href="#skills">Yetenekler</a></li>
-    </ul>
-
-    <a href="sevval_baskan_cv.pdf" class="cv-button" download>
-        <i class="fas fa-download"></i> CV İndir
-    </a>
-
-    <div style="margin-top: auto; font-size: 1.2rem;">
-        <a href="https://github.com/sevval34/sevval34" style="margin: 0 10px;"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/sevval-in" style="margin: 0 10px;"><i class="fab fa-linkedin"></i></a>
+    <div class="social-icons">
+        <a href="https://github.com/sevval34/sevval34"><i class="fab fa-github"></i></a> 
+        <a href="https://www.linkedin.com/in/sevval-in"><i class="fab fa-linkedin"></i></a> [cite: 2]
+        <a href="mailto:sevvalbaskan_@outlook.com"><i class="fas fa-envelope"></i></a> 
     </div>
-</nav>
 
-<main>
-    <section id="about">
-        <h2>Hakkımda</h2>
-        <p>Bülent Ecevit Üniversitesi Bilgisayar Mühendisliği bölümünde son sınıf öğrencisiyim[cite: 6]. Teknik yetkinliklerimi pratik çözümlere dönüştürmeye odaklanan, dijital dönüşüm süreçlerine ilgi duyan bir geliştiriciyim[cite: 16].</p>
-        <p>Şu anda Bimser bünyesinde stajyer yazılım geliştirici olarak kurumsal iş akışları ve veri modelleme üzerine çalışıyorum[cite: 12, 18]. Akademik olarak 3.31 GPA ile eğitimime devam etmekteyim[cite: 8].</p>
-    </section>
+    <a href="sevval_baskan_cv.pdf" class="cv-btn" download>CV İndir</a>
+</header>
 
-    <section id="experience">
-        <h2>Deneyim</h2>
-        <div class="experience-item">
-            <span class="date">06/2024 - Halen</span>
-            <h3>Software Development Intern | Bimser</h3>
-            <ul>
-                <li>Low-Code platformu üzerinde uçtan uca kurumsal form tasarımı ve iş akışı geliştirme[cite: 16].</li>
-                <li>C# scriptleri ile karmaşık mantıksal hesaplamaların dijitalleştirilmesi[cite: 17].</li>
-                <li>MSSQL üzerinde veri modelleme ve saklama süreçlerinin yönetimi[cite: 18].</li>
-            </ul>
-        </div>
-    </section>
+<div class="skills-section">
+    <div class="skill-tag">C# / .NET</div> [cite: 31]
+    <div class="skill-tag">Python (YOLOv8, OpenCV)</div> [cite: 27, 28]
+    <div class="skill-tag">React / Next.js</div> [cite: 32]
+    <div class="skill-tag">TypeScript</div> [cite: 32]
+    <div class="skill-tag">MSSQL</div> [cite: 18]
+    <div class="skill-tag">HTML / CSS</div> [cite: 32]
+</div>
 
-    <section id="projects">
-        <h2>Projeler</h2>
-        <div class="project-item">
-            <span class="date">2025</span>
-            <h3>Renk Körlüğü Simülasyonu</h3>
-            <p>OpenCV ve NumPy kullanılarak geliştirilen, renk körlüğü türlerine göre görsel iyileştirme yapan erişilebilirlik platformu[cite: 23, 24].</p>
+<div class="container">
+    <h2 class="section-title">Projeler</h2>
+    <div class="projects-grid">
+        <div class="project-card">
+            <h3>Renk Körlüğü Simülasyonu</h3> [cite: 21]
+            <p>OpenCV ve NumPy ile Daltonizasyon iyileştirmesi sunan görüntü işleme platformu[cite: 24].</p>
+            <a href="https://github.com/sevval34/sevval34">GitHub →</a>
         </div>
-        <div class="project-item">
-            <span class="date">2025</span>
-            <h3>Türk Çini Sanatı Motif Tanıma</h3>
-            <p>YOLOv8 mimarisi ile geleneksel motiflerin dijital ortamda otomatik sınıflandırılmasını sağlayan derin öğrenme modeli[cite: 27, 28].</p>
+        
+        <div class="project-card">
+            <h3>Çini Motifi Tanıma</h3> [cite: 25]
+            <p>YOLOv8 ve derin öğrenme ile Türk çini sanatındaki motifleri otomatik tanıyan sistem[cite: 27].</p>
+            <a href="https://github.com/sevval34/sevval34">GitHub →</a>
         </div>
-    </section>
 
-    <section id="skills">
-        <h2>Yetenekler</h2>
-        <div class="skills-grid">
-            <div class="skill-tag">C# / .NET</div>
-            <div class="skill-tag">Python (OpenCV, YOLOv8)</div>
-            <div class="skill-tag">React / Next.js</div>
-            <div class="skill-tag">TypeScript</div>
-            <div class="skill-tag">MSSQL</div>
-            <div class="skill-tag">İngilizce (B2)</div>
+        <div class="project-card">
+            <h3>Bimser Staj Projeleri</h3> [cite: 12]
+            <p>Kurumsal süreçlerin Low-Code platformları üzerinde dijital iş akışlarına dönüştürülmesi[cite: 16, 19].</p>
+            <a href="https://github.com/sevval34/sevval34">GitHub →</a>
         </div>
-    </section>
-</main>
+    </div>
+</div>
+
+<footer>
+    <p>Zonguldak / Türkiye [cite: 6]</p>
+    <p>+90 (531) 652 56 61 </p>
+    <p>© 2026 Şevval Başkan</p>
+</footer>
 
 </body>
 </html>
